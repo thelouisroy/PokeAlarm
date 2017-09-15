@@ -26,8 +26,7 @@ class DiscordAlarm(Alarm):
             'icon_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/<pkmn_id>.png",
             'avatar_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/<pkmn_id>.png",
             'title': "A wild <pkmn> has appeared!",
-            'url': "<gmaps>",
-            'body': "Available until <24h_time> (<time_left>)."
+            'url': "<gmaps>"   
         },
         'pokestop': {
             'username': "Pokestop",
