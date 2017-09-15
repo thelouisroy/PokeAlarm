@@ -35,7 +35,6 @@ class DiscordAlarm(Alarm):
             'avatar_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/pokestop.png",
             'title': "Someone has placed a lure on a Pokestop!",
             'url': "<gmaps>",
-            'body': "Lure will expire at <24h_time> (<time_left>)."
         },
         'gym': {
             'username': "<new_team> Gym Alerts",
@@ -44,7 +43,6 @@ class DiscordAlarm(Alarm):
             'avatar_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/gym_<team_id>.png",
             'title': "A Team <old_team> gym has fallen!",
             'url': "<gmaps>",
-            'body': "It is now controlled by <new_team>."
         },
         'egg': {
             'username': "Egg",
@@ -53,7 +51,6 @@ class DiscordAlarm(Alarm):
             'avatar_url': "https://raw.githubusercontent.com/fosJoddie/PokeAlarm/raids/icons/egg_<raid_level>.png",
             'title': "Raid is incoming!",
             'url': "<gmaps>",
-            'body': "A level <raid_level> raid will hatch <begin_24h_time> (<begin_time_left>)."
         },
         'raid': {
             'username': "Raid",
@@ -62,7 +59,6 @@ class DiscordAlarm(Alarm):
             'avatar_url': "https://raw.githubusercontent.com/fosJoddie/PokeAlarm/raids/icons/egg_<raid_level>.png",
             'title': "Level <raid_level> Raid is available against <pkmn>!",
             'url': "<gmaps>",
-            'body': "The raid is available until <24h_time> (<time_left>)."
         }
     }
 
@@ -119,7 +115,6 @@ class DiscordAlarm(Alarm):
             'icon_url': settings.pop('icon_url', default['icon_url']),
             'title': settings.pop('title', default['title']),
             'url': settings.pop('url', default['url']),
-            'body': settings.pop('body', default['body']),
             'map': get_static_map_url(settings.pop('map', self.__map), self.__static_map_key)
         }
 
@@ -138,7 +133,6 @@ class DiscordAlarm(Alarm):
             payload['embeds'] = [{
                 'title': replace(alert['title'], info),
                 'url': replace(alert['url'], info),
-                'description': replace(alert['body'], info),
                 'thumbnail': {'url': replace(alert['icon_url'], info)}
             }]
             if alert['map'] is not None:
